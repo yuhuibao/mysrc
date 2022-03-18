@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define NUM_PHI 5
+#define NUM_PHI 15
 
 pthread_mutex_t forks[NUM_PHI];
 int dinner_time = 1;
