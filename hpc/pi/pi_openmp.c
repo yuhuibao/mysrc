@@ -26,6 +26,7 @@ int main(int argc, char **argv) {
   float pi;
   int circle_points = 0, tid;
   int darts[num_threads];
+  double t1, t2;
   darts_extra = num_darts % num_threads;
   darts_per_thread = num_darts / num_threads;
   for (int t = 0; t < num_threads; t++) {
@@ -41,11 +42,14 @@ int main(int argc, char **argv) {
   }
 #pragma omp parallel num_threads(num_threads)
   {
+    t1 = omp_get_wtime();
     tid = omp_get_thread_num();
     work(darts[tid], interval);
+    t2 = omp_get_wtime();
   }
 
   pi = (float)(4 * total) / num_darts;
   printf("final estimation of pi=%g\n", pi);
+  printf("time: %g\n", t2 - t1);
   return 0;
 }
