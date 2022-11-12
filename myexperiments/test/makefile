@@ -1,5 +1,4 @@
 IDIR = ./include
-CC=gcc
 CFLAGS=-I$(IDIR)
 _DEPS = test.h test2.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
