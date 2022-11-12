@@ -4,7 +4,7 @@ _DEPS = test.h test2.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 main: main.o square.o
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ 
 #define a rule for all files ending in the .o suffix here for main.o and square.o
 %.o: %.c $(DEPS)
 	$(CC) -c $< $(CFLAGS) -o $@
