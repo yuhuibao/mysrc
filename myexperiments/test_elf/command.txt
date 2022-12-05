@@ -1,0 +1,15 @@
+gcc -m32 -c math.c
+gcc -m32 -c hello.c
+
+readelf -S math.o
+readelf -s math.o
+readelf -l hello.o
+
+gcc -m32 math.o hello.o -o hello // by default it outputs a PIE(position independent ELF)
+gcc -m32 -no-pie math.o hello.o // a.out is a ELF exact same as the book chapter 5
+
+readelf -l a.out
+
+gcc -m32 -s math.o hello.o -o hello_s // -s Remove all symbol table and relocation information from the executable.
+
+
